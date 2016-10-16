@@ -21,12 +21,12 @@ class Buffer {
    }
     
    public synchronized char get() throws InterruptedException {
-	   char c='g';
+	   
 	   while (count == 0) {
     	 wait();
          
      }
-	   c = buffer[out]; 
+	   char c = buffer[out]; 
        out = (out + 1) % buffer.length;
        count--;
        System.out.println("Consumiendo "+ c + " ...");
