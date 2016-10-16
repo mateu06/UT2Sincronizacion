@@ -7,14 +7,14 @@ public class CoffeeStore {
 	        Thread.sleep(3000);
 	    }
 	     
-	    public void buyCoffee(String client) throws InterruptedException {
+	    public synchronized void buyCoffee(String client) throws InterruptedException {
 	        someLongRunningProcess();
 	        lastClient = client;
 	        soldCoffees++;
 	        System.out.println(client + " bought some coffee");
 	    }
 	     
-	    public int countSoldCoffees() {return soldCoffees;}
+	    public synchronized int countSoldCoffees() {return soldCoffees;}
 	     
-	    public String getLastClient() {return lastClient;}
+	    public synchronized String getLastClient() {return lastClient;}
 }
